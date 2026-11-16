@@ -34,7 +34,7 @@ Wil je een eigen Chrome gebruiken: `CHROME_PATH=/pad/naar/chrome npm run test:br
 
 Elke push op `main` zet de site live. Er is geen buildstap.
 
-- Als Worker: `wrangler.jsonc` staat klaar en serveert `public/`.
+- Als Worker: `wrangler.jsonc` staat klaar en serveert `public/`. De Worker in Cloudflare moet `tuinencardon` heten, zoals in `wrangler.jsonc`, anders mislukt de build.
 - Als Pages-project: uitvoermap `public`, geen buildcommando.
 
 Het subdomein `tuinman.denkwerf.com` stel je in bij het project onder "Custom domains".
