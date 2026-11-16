@@ -1,13 +1,15 @@
+# Beveiligingsbeleid en caching voor de hele site.
+# no-transform: Cloudflare zet dan geen eigen scripts in de pagina's, zoals Web Analytics of botdetectie.
+# Die zouden bezoekers volgen of een cookie zetten, en ze botsen met het beveiligingsbeleid.
 /*
   X-Robots-Tag: noindex
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=(), interest-cohort=()
   Content-Security-Policy: default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; font-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
-  #no-transform: Cloudflare zet dan geen eigen scripts in de pagina's, zoals Web Analytics of botdetectie.
-  #Die zouden bezoekers volgen of een cookie zetten, en ze botsen met het beveiligingsbeleid hierboven.
   Cache-Control: public, max-age=0, must-revalidate, no-transform
 
+# Lettertypes veranderen nooit van inhoud: lang bewaren in de browser.
 /fonts/*
   ! Cache-Control
   Cache-Control: public, max-age=31536000, immutable
