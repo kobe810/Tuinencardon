@@ -1,4 +1,5 @@
 // Browsertests: de pagina's werken op computer en gsm, zonder fouten in de console en zonder horizontaal scrollen.
+// Live (npm run test:live) vangt dit ook scripts op die Cloudflare zelf in de pagina zou zetten.
 import { test, expect } from '@playwright/test';
 
 test.beforeEach(async ({ page }, testInfo) => {
