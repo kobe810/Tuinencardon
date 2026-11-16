@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="nl-BE">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Afspraak maken, Tuinen Cardon</title>
+  <meta name="description" content="Boek een gratis plaatsbezoek of vraag je onderhoudsplan aan.">
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/site.css">
+  <script src="/js/met-js.js"></script>
+</head>
+<body>
+
+<header class="kop kop--eenvoudig">
+  <div class="kop__binnen">
+    <a class="logo" href="/">
+      <span class="logo__teken"><svg class="ico" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 20C4 11 10 4 20 4C20 14 13 20 4 20Z"/><path d="M4 20L13 11"/></svg></span>
+      <span class="logo__naam">Tuinen Cardon</span>
+    </a>
+    <a class="terug" href="/"><svg class="ico" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>Startpagina</a>
+  </div>
+</header>
+
+<main class="pagina">
+  <div class="wrap stapel stapel--groot">
+    <h1>Afspraak maken</h1>
+
+    <div class="keuzes" role="group" aria-label="Kies wat je wil">
+      <button type="button" class="segment segment--groot" data-tab="bezoek" aria-pressed="true" aria-controls="paneel-bezoek">
+        <svg class="ico" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        Plaatsbezoek boeken
+      </button>
+      <button type="button" class="segment segment--groot" data-tab="werk" aria-pressed="false" aria-controls="paneel-werk">
+        <svg class="ico" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+        Werk aanvragen
+      </button>
+    </div>
+
+    <section id="paneel-bezoek" class="stapel" aria-labelledby="bezoek-titel">
+      <div class="kaart stapel stapel--groot">
+        <div class="stapel stapel--klein">
+          <h2 id="bezoek-titel">Gratis plaatsbezoek</h2>
+          <p class="zacht">Ik kom langs, bekijk je tuin en meet alles na. Daarna krijg je een vaste prijs.</p>
+        </div>
+        <div class="knoppen knoppen--tussen">
+          <div class="weeknav">
+            <button type="button" id="week-vorige" aria-label="Vorige week"><svg class="ico" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+            <span class="weeknav__label" id="week-label" aria-live="polite">Week van</span>
+            <button type="button" id="week-volgende" aria-label="Volgende week"><svg class="ico" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+          </div>
+          <span class="badge badge--concept" data-concept="momenten">Voorbeeld: de echte vrije momenten komen later uit Google Agenda</span>
+        </div>
+        <div class="dagen" id="dagen"></div>
+        <noscript><p class="zacht">Online boeken werkt met JavaScript. Bel of mail gerust voor een afspraak.</p></noscript>
+      </div>
+
+      <form class="kaart stapel stapel--groot" id="form-bezoek" hidden>
+        <div class="melding">
+          <span class="melding__icoon"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span>
+          <span>Je kiest <strong id="keuze-label"></strong></span>
+        </div>
+        <div class="raster raster--velden">
+          <div class="veld"><label for="b-naam">Naam</label><input class="invoer" id="b-naam" name="naam" type="text" autocomplete="name" required></div>
+          <div class="veld"><label for="b-tel">Telefoon</label><input class="invoer" id="b-tel" name="telefoon" type="tel" autocomplete="tel" required></div>
+          <div class="veld"><label for="b-straat">Straat en nummer</label><input class="invoer" id="b-straat" name="straat" type="text" autocomplete="street-address" required></div>
+          <div class="veld"><label for="b-gemeente">Postcode en gemeente</label><input class="invoer" id="b-gemeente" name="gemeente" type="text" autocomplete="address-level2" required></div>
+          <div class="veld"><label for="b-mail">E-mail</label><input class="invoer" id="b-mail" name="email" type="email" autocomplete="email"></div>
+          <div class="veld"><label for="b-opm">Iets wat ik moet weten?</label><textarea class="invoer" id="b-opm" name="opmerking" rows="2"></textarea></div>
+        </div>
+        <p class="zacht">Ik gebruik je gegevens alleen voor deze afspraak. Lees ook de <a href="/privacy/">privacyverklaring</a>.</p>
+        <div class="knoppen"><button type="submit" class="knop">Bevestig je plaatsbezoek</button></div>
+      </form>
+
+      <div class="melding melding--geel" id="bezoek-niet-actief" tabindex="-1" hidden>
+        <span>Online boeken werkt nog niet. Bel of mail me voorlopig rechtstreeks om je plaatsbezoek op <strong id="bezoek-moment"></strong> vast te leggen: [TELEFOONNUMMER] of [E-MAILADRES].</span>
+      </div>
+    </section>
+
+    <section id="paneel-werk" class="stapel" aria-labelledby="werk-titel" hidden>
+      <form class="kaart stapel stapel--groot" id="form-werk">
+        <div class="stapel stapel--klein">
+          <h2 id="werk-titel">Werk aanvragen</h2>
+          <p class="zacht">Je stuurt je plan door. Ik bekijk het en bevestig via mail of telefoon. Daarna zet ik alle beurten vast in mijn agenda.</p>
+        </div>
+
+        <div class="stapkaart" id="plan-vol" hidden>
+          <div class="knoppen knoppen--tussen">
+            <span class="label">Je plan</span>
+            <a class="terug" href="/prijs/">Aanpassen</a>
+          </div>
+          <div class="planchips" id="plan-chips"></div>
+          <span class="label" id="plan-totaal"></span>
+        </div>
+        <div class="stapkaart" id="plan-leeg">
+          <span class="label">Je hebt nog geen prijs berekend.</span>
+          <div class="knoppen"><a class="knop knop--licht knop--klein" href="/prijs/">Bereken je prijs</a></div>
+        </div>
+
+        <div class="veld">
+          <span class="veld__titel" id="wens-titel">Wanneer mag ik komen?</span>
+          <div class="keuzes" role="group" aria-labelledby="wens-titel">
+            <button type="button" class="segment" data-wens="buurt" aria-pressed="true" id="wens-buurt">Op mijn buurtdag</button>
+            <button type="button" class="segment" data-wens="ander" aria-pressed="false">Andere dagen</button>
+          </div>
+          <div class="stapel stapel--klein" id="dagkeuze" hidden>
+            <span class="zacht">Kies de dagen die jou passen. Buiten de buurtdag reken ik een verplaatsingskost.</span>
+            <div class="keuzes" role="group" aria-label="Voorkeursdagen">
+              <button type="button" class="segment segment--dag" data-dag="maandag" aria-pressed="false">Ma</button>
+              <button type="button" class="segment segment--dag" data-dag="dinsdag" aria-pressed="false">Di</button>
+              <button type="button" class="segment segment--dag" data-dag="woensdag" aria-pressed="false">Wo</button>
+              <button type="button" class="segment segment--dag" data-dag="donderdag" aria-pressed="false">Do</button>
+              <button type="button" class="segment segment--dag" data-dag="vrijdag" aria-pressed="false">Vr</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="veld veld--smal">
+          <label for="w-start">Vanaf wanneer?</label>
+          <select class="invoer" id="w-start" name="start">
+            <option>Na het plaatsbezoek</option>
+            <option>Zo snel mogelijk</option>
+            <option>Vanaf het voorjaar</option>
+          </select>
+        </div>
+
+        <div class="raster raster--velden">
+          <div class="veld"><label for="w-naam">Naam</label><input class="invoer" id="w-naam" name="naam" type="text" autocomplete="name" required></div>
+          <div class="veld"><label for="w-tel">Telefoon</label><input class="invoer" id="w-tel" name="telefoon" type="tel" autocomplete="tel" required></div>
+          <div class="veld"><label for="w-straat">Straat en nummer</label><input class="invoer" id="w-straat" name="straat" type="text" autocomplete="street-address" required></div>
+          <div class="veld"><label for="w-mail">E-mail</label><input class="invoer" id="w-mail" name="email" type="email" autocomplete="email"></div>
+        </div>
+        <p class="zacht">Ik gebruik je gegevens alleen om je aanvraag te behandelen. Lees ook de <a href="/privacy/">privacyverklaring</a>.</p>
+        <div class="knoppen"><button type="submit" class="knop">Aanvraag versturen</button></div>
+      </form>
+
+      <div class="melding melding--geel" id="werk-niet-actief" tabindex="-1" hidden>
+        <span>Online aanvragen werkt nog niet. Bel of mail me voorlopig rechtstreeks: [TELEFOONNUMMER] of [E-MAILADRES].</span>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="voet">
+  <div class="wrap voet__binnen">
+    <div class="voet__gegevens">
+      <span class="voet__naam">Tuinen Cardon</span>
+      <span>[STRAAT EN NUMMER], [POSTCODE EN GEMEENTE]</span>
+      <span>Ondernemingsnummer [KBO-NUMMER]</span>
+      <span>[E-MAILADRES]</span>
+    </div>
+    <nav aria-label="Juridisch">
+      <a href="/voorwaarden/">Voorwaarden</a>
+      <a href="/privacy/">Privacyverklaring</a>
+    </nav>
+  </div>
+</footer>
+
+<script type="module" src="/js/afspraak.js"></script>
+</body>
+</html>

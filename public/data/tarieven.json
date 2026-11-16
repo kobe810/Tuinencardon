@@ -1,0 +1,23 @@
+{
+  "_uitleg": "Tarieven inclusief btw, in euro. null betekent: nog niet ingevuld. De site toont dan een plaatshouder in plaats van een bedrag. Zet nagekeken op true zodra alle tarieven nagekeken zijn, dan verdwijnt de melding op de site.",
+  "nagekeken": false,
+  "gras": { "eenheid": "per m² per beurt", "prijs": null },
+  "borders": { "eenheid": "per m² per beurt", "prijs": null },
+  "terras": { "eenheid": "per m² per beurt", "prijs": null },
+  "blad": { "eenheid": "per m² per beurt", "prijs": null },
+  "gazon": { "eenheid": "per m² per beurt", "prijs": null },
+  "haag": {
+    "eenheid": "per meter per zijkant per beurt",
+    "laag": null,
+    "midden": null,
+    "hoog": null
+  },
+  "struik": {
+    "eenheid": "per struik per beurt",
+    "klein": null,
+    "midden": null,
+    "groot": null
+  },
+  "afvoer": { "eenheid": "per bezoek", "prijs": null },
+  "verplaatsing": { "eenheid": "per bezoek buiten de buurtdag", "prijs": null }
+}

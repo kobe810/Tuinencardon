@@ -1,0 +1,3 @@
+# Tijdelijke site op tuinman.denkwerf.com: nog niet laten indexeren.
+User-agent: *
+Disallow: /

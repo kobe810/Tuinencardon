@@ -1,0 +1,9 @@
+// Cloudflare Workers met statische bestanden uit public/. Er is geen buildstap.
+{
+  "name": "tuinman",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./public",
+    "not_found_handling": "404-page"
+  }
+}

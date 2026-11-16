@@ -1,0 +1,35 @@
+{
+  "_uitleg": "Indeling in buurten met een vaste dag. Voorstel, nog niet nagekeken. De postcodes van Dilbeek komen van vlaanderen.be (nagekeken op 16 november 2026). Pas je hier iets aan, pas dan ook de buurtdagen op de startpagina aan: de test controleert dat ze overeenkomen.",
+  "nagekeken": false,
+  "buurten": [
+    {
+      "dag": "maandag",
+      "naam": "Dilbeek",
+      "gemeenten": ["Dilbeek", "Groot-Bijgaarden", "Itterbeek", "Schepdaal", "Sint-Martens-Bodegem", "Sint-Ulriks-Kapelle"],
+      "postcodes": ["1700", "1701", "1702", "1703"]
+    },
+    {
+      "dag": "dinsdag",
+      "naam": "Asse en Ternat",
+      "gemeenten": ["Asse", "Zellik", "Ternat", "Affligem", "Liedekerke", "Roosdaal"],
+      "postcodes": ["1730", "1731", "1740", "1760", "1770", "1790"]
+    },
+    {
+      "dag": "woensdag",
+      "naam": "Lennik en Halle",
+      "gemeenten": ["Lennik", "Gooik", "Sint-Pieters-Leeuw", "Halle"],
+      "postcodes": ["1500", "1501", "1502", "1600", "1750", "1755"]
+    },
+    {
+      "dag": "donderdag",
+      "naam": "Anderlecht en Berchem",
+      "gemeenten": ["Anderlecht", "Sint-Agatha-Berchem", "Ganshoren"],
+      "postcodes": ["1070", "1082", "1083"]
+    }
+  ],
+  "flexdag": {
+    "dag": "vrijdag",
+    "naam": "Flexdag",
+    "tekst": "Grotere werken, plaatsbezoeken en inhaaldag bij slecht weer"
+  }
+}

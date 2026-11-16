@@ -1,0 +1,12 @@
+{
+  "_uitleg": "Voorbeeld van vrije momenten voor een plaatsbezoek, per weekdag. Later komen de echte vrije momenten uit Google Agenda.",
+  "voorbeeld": true,
+  "weken": 2,
+  "perDag": {
+    "maandag": ["16:30", "17:15"],
+    "dinsdag": ["16:30"],
+    "woensdag": [],
+    "donderdag": ["16:30", "17:15"],
+    "vrijdag": ["09:00", "10:30", "13:30"]
+  }
+}
